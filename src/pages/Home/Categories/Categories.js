@@ -1,11 +1,26 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
+import Category from '../Category/Category/Category';
 
 const Categories = () => {
-    
+
+    const  {data:categories = []} = useQuery({
+        queryKey: ['categories'],
+        queryFn: () => fetch('categories.json')
+        .then(res => res.json())
+      
+    })
 
     return (
-        <div>
-            
+        <div className='mb-5'>
+           <h1 className='text-3xl font-semibold text-center text-amber-600'>All Companies:{categories.length}</h1>
+           <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6'>
+            {
+                categories.map(category => <Category
+                key={category.id}
+                category={category}></Category>)
+            }
+        </div>
         </div>
     );
 };
