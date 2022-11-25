@@ -6,7 +6,7 @@ const Categories = () => {
 
     const  {data:categories = []} = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch('categories.json')
+        queryFn: () => fetch('http://localhost:5000/categories')
         .then(res => res.json())
       
     })
