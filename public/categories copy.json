@@ -7,8 +7,11 @@
       "location":"Toronto",
       "resalePrice": 300,
       "originalPrice": 500,
+      "condition":"Good",
       "postedDated": "Nov 22,2022",
-      "sellersName":"Sami Khan"
+      "purchaseDated": "Nov 20,2012",
+      "sellersName":"Sami Khan",
+      "mobile": "+9898344877"
 
     },
 
@@ -21,7 +24,10 @@
       "resalePrice": 200,
       "originalPrice": 400,
       "postedDated": "Nov 10,2022",
-      "sellersName":"Sami Islam"
+      "sellersName":"Sami Islam",
+      "condition":"Good",
+      "purchaseDate": "Nov 20,2016",
+      "mobile": "+9898344845"
 
 
     
@@ -36,7 +42,10 @@
       "resalePrice": 100,
       "originalPrice": 300,
       "postedDated": "Oct 22,2022",
-      "sellersName":"Shakib Khan"
+      "sellersName":"Shakib Khan",
+      "condition":"Not Good",
+      "purchaseDate": "Sep 20,2014",
+      "mobile": "+9898344895"
 
 
     
@@ -51,7 +60,10 @@
       "resalePrice": 100,
       "originalPrice": 300,
       "postedDated": "Oct 30,2022",
-      "sellersName":"Rabbi Khan"
+      "sellersName":"Rabbi Khan",
+      "condition":"Not Good",
+      "purchaseDate": "Sep 22,2015",
+      "mobile": "+98983448554"
 
 
     },
@@ -64,7 +76,10 @@
       "resalePrice": 200,
       "originalPrice": 400,
       "postedDated": "Oct 22,2022",
-      "sellersName":"Musa Khan"
+      "sellersName":"Musa Khan",
+      "condition":"Good",
+      "purchaseDate": "Sep 20,2017",
+      "mobile": "+98983345895"
 
 
     
@@ -79,7 +94,10 @@
       "resalePrice": 300,
       "originalPrice": 500,
       "postedDated": "Sep 30,2022",
-      "sellersName":"Ashik Islam"
+      "sellersName":"Ashik Islam",
+      "condition":"Not Good",
+      "purchaseDate": "Sep 20,2018",
+      "mobile": "+989833458934"
 
 
     
@@ -94,7 +112,10 @@
       "resalePrice": 200,
       "originalPrice": 400,
       "postedDated": "Oct 22,2022",
-      "sellersName":"Sayem Khan"
+      "sellersName":"Sayem Khan",
+      "condition":"Good",
+      "purchaseDate": "Feb 20,2014",
+      "mobile": "+989833458934"
 
 
     },
@@ -107,7 +128,10 @@
       "resalePrice": 300,
       "originalPrice": 500,
       "postedDated": "Oct 12,2022",
-      "sellersName":"Rubel Islam"
+      "sellersName":"Rubel Islam",
+      "condition":"Not Good",
+      "purchaseDate": "Jun 20,2018",
+      "mobile": "+989833458956"
 
 
     },
@@ -120,7 +144,10 @@
       "resalePrice": 100,
       "originalPrice": 300,
       "postedDated": "Sep 28,2022",
-      "sellersName":"Asif Islam"
+      "sellersName":"Asif Islam",
+      "condition":"Good",
+      "purchaseDate": "Jan 20,2019",
+      "mobile": "+98983334934"
 
 
     }
