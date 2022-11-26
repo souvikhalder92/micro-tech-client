@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const { register,formState: { errors }, handleSubmit } = useForm();
+    const { register,formState: { errors }, handleSubmit,reset } = useForm();
     const { signIn,  providerLogin  } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
@@ -13,7 +13,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '';
     
     const googleProvider = new GoogleAuthProvider();
    
@@ -23,6 +23,7 @@ const Login = () => {
     .then(result =>{
         const user = result.user;
         console.log(user);
+        navigate(from,{replace: true});
     })
         .catch(error => console.log(error))
     
@@ -35,6 +36,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from,{replace: true});
                  setLoginUserEmail(data.email);
             })
             .catch(error => {

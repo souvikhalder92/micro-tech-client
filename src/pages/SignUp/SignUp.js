@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -36,15 +37,13 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 navigate('/');
-            //     toast('WOW!Successful Registration')
-            //     const userInfo = {
-            //         displayName: data.name
-            //     }
-            //     updateUser(userInfo)
-            //         .then(() => {
-            //             saveUser(data.name , data.email);
-            //          })
-            //         .catch(err => console.log(err));
+            toast('WOW!Successful Registration!')
+             const userInfo = {
+                  displayName: data.name
+               }
+                updateUser(userInfo)
+                     .then(() => {})
+             .catch(err => console.log(err));
              })
             .catch(error => {
                 console.log(error)
@@ -70,6 +69,12 @@ const SignUp = () => {
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                 </div>
+                <div className="form-control w-full max-w-xs mt-2 border p-2">
+                <select {...register("category", { required: true })}>
+                <option value="A">User</option>
+                <option value="B">Seller</option>
+      </select>
+      </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Password</span></label>
                     <input type="password" {...register("password", {
