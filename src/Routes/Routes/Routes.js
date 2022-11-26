@@ -1,5 +1,7 @@
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Blog from "../../pages/Blog/Blog";
 import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "../../pages/Dashboard/MyOrders/MyOrders";
 
 import Login from "../../pages/Login/Login";
 import NotFound from "../../pages/NotFound/NotFound";
@@ -43,7 +45,14 @@ const router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyOrders></MyOrders>
+            },
+          
+        ]
     },
     {
         path:'*',
