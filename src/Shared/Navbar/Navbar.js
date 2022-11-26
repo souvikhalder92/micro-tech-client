@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaModx, IconName } from "react-icons/fa";
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err));
+    }
    
     const menuItems = <React.Fragment>
     <li className='font-semibold text-xl  text-orange-500 '><Link to="/">Home</Link></li>
     <li className='font-semibold text-xl  text-orange-500 '><Link to="/blog">Blog</Link></li>
-    <li className='font-semibold text-xl  text-orange-500 '><Link to="/login">Login</Link></li>
+    {user?.uid ?
+            <>
+                <li className='font-semibold text-xl  text-orange-500 '><Link to="/dashboard">Dashboard</Link></li>
+                <li className='font-semibold text-xl  text-orange-500 '><button onClick={handleLogOut}>Sign out</button></li>
+            </>
+            : <li className='font-semibold text-xl  text-orange-500 '><Link to="/login">Login</Link></li>
+            }
   
  
 </React.Fragment>

@@ -5,7 +5,7 @@ import router from './Routes/Routes/Routes';
 
 function App() {
   return (
-    <div className='lg:max-w-screen-xl lg:mx-auto'>
+    <div>
       <RouterProvider router={router}>
         
 

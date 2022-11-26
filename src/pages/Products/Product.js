@@ -27,7 +27,7 @@ const Product = ({product}) => {
       <p><span className='font-bold'>Posted Date: </span>{postedDated}</p>
       <p><span className='font-bold'>Contact: </span>{mobile}</p>
       </div>
-      <button className="btn btn-primary mx-32 lg:mx-48 mt-5 lg:px-8">Add To Cart</button>
+      <button className="btn btn-primary mx-32 lg:mx-48 mt-5 lg:px-8">Book Now</button>
     </div>
   </div>
 </div>
