@@ -1,4 +1,6 @@
 import Blog from "../../pages/Blog/Blog";
+import Dashboard from "../../pages/Dashboard/Dashboard/Dashboard";
+
 import Login from "../../pages/Login/Login";
 import NotFound from "../../pages/NotFound/NotFound";
 import Products from "../../pages/Products/Products";
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
                 element:<SignUp></SignUp>
             }
         ]
+    },
+    {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>
     },
     {
         path:'*',

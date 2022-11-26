@@ -17,7 +17,7 @@ const Navbar = () => {
     {user?.uid ?
             <>
                 <li className='font-semibold text-xl  text-orange-500 '><Link to="/dashboard">Dashboard</Link></li>
-                <li className='font-semibold text-xl  text-orange-500 '><button onClick={handleLogOut}>Sign out</button></li>
+                <li className='font-semibold text-xl  text-orange-500 '><button onClick={handleLogOut}>Log out</button></li>
             </>
             : <li className='font-semibold text-xl  text-orange-500 '><Link to="/login">Login</Link></li>
             }
