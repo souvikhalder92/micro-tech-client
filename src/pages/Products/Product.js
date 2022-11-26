@@ -2,8 +2,9 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Product = ({product}) => {
-    console.log(product)
+const Product = ({product,setService}) => {
+  console.log(setService)
+    
     const {_id,categoryName,name,img,location,originalPrice,resalePrice,postedDated,sellersName,description,condition,purchaseDate,mobile} = product;
     console.log(product)
     return (
@@ -27,7 +28,11 @@ const Product = ({product}) => {
       <p><span className='font-bold'>Posted Date: </span>{postedDated}</p>
       <p><span className='font-bold'>Contact: </span>{mobile}</p>
       </div>
-      <button className="btn btn-primary mx-32 lg:mx-48 mt-5 lg:px-8">Book Now</button>
+      <label 
+            htmlFor="booking-modal"
+            className="btn btn-info text-white mx-36 lg:mx-64 mt-5"
+            onClick={() => setService(product)}
+            >Book Now</label>
     </div>
   </div>
 </div>

@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from './BookingModal';
 import Product from './Product';
 
 const Products = () => {
 
     const products = useLoaderData();
+    const [service,setService] = useState(null);
   
  const  {data:prod = []} = useQuery({
     queryKey: ['prod'],
@@ -25,9 +27,16 @@ const Products = () => {
             {
                 prod.map(product => <Product
                 key={product.id}
-                product={product}></Product>)
+                product={product}
+                setService={setService}></Product>)
             }
             </div>
+            {
+                service &&
+            <BookingModal
+            service={service}
+            setService={setService}></BookingModal>
+}
         </div>
     );
 };

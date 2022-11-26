@@ -36,13 +36,14 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/');
             toast('WOW!Successful Registration!')
              const userInfo = {
                   displayName: data.name
                }
                 updateUser(userInfo)
-                     .then(() => {})
+                     .then(() => {
+                        navigate('/');
+                     })
              .catch(err => console.log(err));
              })
             .catch(error => {
