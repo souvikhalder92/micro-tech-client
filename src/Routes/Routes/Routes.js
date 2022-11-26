@@ -1,4 +1,6 @@
+import Blog from "../../pages/Blog/Blog";
 import Login from "../../pages/Login/Login";
+import NotFound from "../../pages/NotFound/NotFound";
 import Products from "../../pages/Products/Products";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -20,12 +22,20 @@ const router = createBrowserRouter([
                 element:<Products></Products>,
                 loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            },
           
             {
                 path:'/login',
                 element:<Login></Login>
             }
         ]
+    },
+    {
+        path:'*',
+        element:<NotFound></NotFound>
     }
 ])
 

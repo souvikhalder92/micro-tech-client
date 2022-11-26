@@ -1,20 +1,18 @@
 [
     {
-      "id": "1",
       "name": "HP",
       "img": "https://i.ibb.co/WWbv1KX/HP-Logo.jpg"
     
 
     },
     {
-        "id": "2",
         "name": "Lenovo",
         "img": "https://i.ibb.co/xXcy5Yc/computer-lenovo-wallpaper-preview.jpg"
       
   
       },
       {
-        "id": "3",
+        
         "name": "Asus",
         "img": "https://i.ibb.co/6DHd1Qv/080910192722-86.jpg"
   

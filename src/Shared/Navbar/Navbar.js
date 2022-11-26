@@ -6,6 +6,7 @@ const Navbar = () => {
    
     const menuItems = <React.Fragment>
     <li className='font-semibold text-xl  text-orange-500 '><Link to="/">Home</Link></li>
+    <li className='font-semibold text-xl  text-orange-500 '><Link to="/blog">Blog</Link></li>
     <li className='font-semibold text-xl  text-orange-500 '><Link to="/login">Login</Link></li>
   
  

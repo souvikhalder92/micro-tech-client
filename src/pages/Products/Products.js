@@ -20,7 +20,7 @@ const Products = () => {
 
     return (
         <div>
-            <h1 className='lg:text-center text-3xl font-semibold'>All Products For {products.categoryName}</h1>
+            <h1 className='lg:text-center lg:text-3xl font-bold lg:font-semibold mx-28 text-2xl'>All Products For {products.categoryName}</h1>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-6 mb-5'>
             {
                 prod.map(product => <Product
