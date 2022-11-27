@@ -103,8 +103,8 @@ const SignUp = () => {
                 </div>
                 <div className="form-control w-full max-w-xs mt-2 border p-2">
                 <select {...register("category", { required: true })}>
-                <option value="A">User</option>
-                <option value="B">Seller</option>
+                <option value="User">User</option>
+                <option value="Seller">Seller</option>
       </select>
       </div>
                 <div className="form-control w-full max-w-xs">

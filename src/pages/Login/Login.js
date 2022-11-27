@@ -22,7 +22,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
 
     if(token){
-        navigate(from,{replace: true});
+        navigate('/');
     }
    
 
