@@ -8,8 +8,9 @@ const Product = ({product,setService}) => {
     const {_id,categoryName,name,img,location,originalPrice,resalePrice,postedDated,sellersName,description,condition,purchaseDate,mobile} = product;
     console.log(product)
     return (
-<div className="hero w-11/12 mx-auto bg-base-200 sm:overflow-x-clip shadow-2xl">
-  <div className="hero-content flex-col flex-col">
+        <div>
+<div className="card w-11/12 mx-auto lg:card-side bg-base-200 shadow-xl  border rounded-tl-md">
+  <div className="hero-content  flex-col">
     <img src={img} className="w-72 lg:w-96 h-96 rounded-lg shadow-2xl" />
     <div>
       <h1 className="text-5xl font-semibold text-center">{categoryName}</h1>
@@ -30,11 +31,12 @@ const Product = ({product,setService}) => {
       </div>
       <label 
             htmlFor="booking-modal"
-            className="btn btn-info text-white mx-36 lg:mx-64 mt-5"
+            className="btn btn-info text-white mx-28 lg:mx-64 mt-5"
             onClick={() => setService(product)}
             >Book Now</label>
     </div>
   </div>
+</div>
 </div>
     );
 };
