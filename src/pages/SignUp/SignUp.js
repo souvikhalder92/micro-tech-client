@@ -2,19 +2,26 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../hooks/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, providerLogin} = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
 
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
+    const location = useLocation();
 
+    const from = location.state?.from?.pathname || '/';
 
+    if(token){
+        navigate('/login');
+    }
     
    
 
@@ -23,9 +30,18 @@ const SignUp = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
-          
-    
-        })
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data =>{
+                setCreatedUserEmail(user.email);
+            })
+            })
         .catch(error => console.log(error))
     
       }
@@ -42,7 +58,7 @@ const SignUp = () => {
                }
                 updateUser(userInfo)
                      .then(() => {
-                        navigate('/');
+                        saveUser(data.name, data.email, data.category);
                      })
              .catch(err => console.log(err));
              })
@@ -50,6 +66,21 @@ const SignUp = () => {
                 console.log(error)
                 setSignUPError(error.message)
             });
+    }
+      
+    const saveUser = (name, email, category) =>{
+        const user ={ name, email, category};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            setCreatedUserEmail(email);
+        })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>

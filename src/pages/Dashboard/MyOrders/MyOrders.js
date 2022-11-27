@@ -8,7 +8,12 @@ const MyOrders = () => {
     const [bookings,setBookings] = useState([]);
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/bookings?email=${user?.email}`)
+        axios.get(`http://localhost:5000/bookings?email=${user?.email}`,{
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}` 
+             }
+
+        })
         .then(data => setBookings(data.data));
 
     },[])
