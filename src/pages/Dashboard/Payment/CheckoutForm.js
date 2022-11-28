@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({booking}) => {
     const [cardError, setCardError] = useState('');
@@ -7,6 +8,7 @@ const CheckoutForm = ({booking}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState("");
+    const navigate = useNavigate();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -14,7 +16,7 @@ const CheckoutForm = ({booking}) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://doctors-portal-server-ruby-beta.vercel.app/create-payment-intent", {
+        fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +55,7 @@ const CheckoutForm = ({booking}) => {
         setSuccess('');
         setProcessing(true);
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
-            clientSecret,
+             clientSecret,
             {
                 payment_method: {
                     card: card,
@@ -79,7 +81,7 @@ const CheckoutForm = ({booking}) => {
                 email,
                 bookingId: _id
             }
-            fetch('https://doctors-portal-server-ruby-beta.vercel.app/payments', {
+            fetch('http://localhost:5000/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -91,8 +93,10 @@ const CheckoutForm = ({booking}) => {
                 .then(data => {
                     console.log(data);
                     if (data.insertedId) {
-                        setSuccess('Congrats! your payment completed');
+                        setSuccess('Congrats! your payment completed!');
                         setTransactionId(paymentIntent.id);
+                     
+                        
                     }
                 })
         }
@@ -128,7 +132,7 @@ const CheckoutForm = ({booking}) => {
         </form>
         <p className="text-red-500">{cardError}</p>
         {
-            success && <div>
+            success && <div className='mt-3'>
                 <p className='text-green-500'>{success}</p>
                 <p>Your transactionId: <span className='font-bold'>{transactionId}</span></p>
             </div>

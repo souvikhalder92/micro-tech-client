@@ -2,9 +2,15 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaModx, IconName } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider';
+import useAdmin from '../../pages/hooks/useAdmin';
+import useSeller from '../../pages/hooks/useSeller';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+   
+  
+    const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = useSeller(user?.email);
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -16,7 +22,18 @@ const Navbar = () => {
     <li className='font-semibold text-xl  text-orange-500 '><Link to="/blog">Blog</Link></li>
     {user?.uid ?
             <>
-                <li className='font-semibold text-xl  text-orange-500 '><Link to="/dashboard">Dashboard</Link></li>
+             
+                {
+               isAdmin || isSeller  ? 
+               <>
+              <li className='font-semibold text-xl  text-orange-500 '><Link to="/dashboard/dashboard">Dashboard</Link></li>
+               
+              </>
+              :
+              <li className='font-semibold text-xl  text-orange-500 '><Link to="/dashboard">Dashboard</Link></li>
+              }
+            
+                  
                 <li className='font-semibold text-xl  text-orange-500 '><button onClick={handleLogOut}>Log out</button></li>
             </>
             : <li className='font-semibold text-xl  text-orange-500 '><Link to="/login">Login</Link></li>

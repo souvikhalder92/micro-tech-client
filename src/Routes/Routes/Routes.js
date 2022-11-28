@@ -8,6 +8,7 @@ import MyOrders from "../../pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../pages/Dashboard/MyProducts/MyProducts";
 import Payment from "../../pages/Dashboard/Payment/Payment";
 
+
 import Login from "../../pages/Login/Login";
 import NotFound from "../../pages/NotFound/NotFound";
 import Products from "../../pages/Products/Products";
@@ -61,12 +62,19 @@ const router = createBrowserRouter([
                 element: <MyOrders></MyOrders>
             },
             {
+                path: '/dashboard/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+          
+
+            {
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: '/dashboard/allsellers',
                 element: <AdminRoute><AllSeller></AllSeller></AdminRoute>
+            
             },
             {
                 path: '/dashboard/addproduct',

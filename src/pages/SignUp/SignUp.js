@@ -12,6 +12,8 @@ const SignUp = () => {
     const [signUpError, setSignUPError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('');
     const [token] = useToken(createdUserEmail);
+    const [status, setStatus] = useState("Buyer");
+    const [verify, setVerify] = useState("Not Verify");
 
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
@@ -48,28 +50,33 @@ const SignUp = () => {
     const handleSignUp = (data) => {
         console.log(data);
         setSignUPError('');
+        setStatus(data.status);
+        console.log(data.status);
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+               
+                
             toast('WOW!Successful Registration!')
              const userInfo = {
                   displayName: data.name
                }
                 updateUser(userInfo)
                      .then(() => {
-                        saveUser(data.name, data.email, data.category);
+                        saveUser(data.name, data.email, data.status, verify);
                      })
              .catch(err => console.log(err));
              })
             .catch(error => {
                 console.log(error)
-                setSignUPError(error.message)
+                setSignUPError(error.message);
+                
             });
     }
       
-    const saveUser = (name, email, category) =>{
-        const user ={ name, email, category};
+    const saveUser = (name, email, status , verify) =>{
+        const user ={ name, email, status , verify};
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -80,12 +87,14 @@ const SignUp = () => {
         .then(res => res.json())
         .then(data =>{
             setCreatedUserEmail(email);
+            setStatus(status);
         })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
         <div className='w-96 p-7 shadow-xl bg-slate-100'>
             <h2 className='text-xl text-center'>Sign Up</h2>
+            
             <form onSubmit={handleSubmit(handleSignUp)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Name</span></label>
@@ -102,8 +111,8 @@ const SignUp = () => {
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                 </div>
                 <div className="form-control w-full max-w-xs mt-2 border p-2">
-                <select {...register("category", { required: true })}>
-                <option value="User">User</option>
+                <select {...register("status", { required: true })}>
+                <option value="Buyer">Buyer</option>
                 <option value="Seller">Seller</option>
       </select>
       </div>

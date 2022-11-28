@@ -50,11 +50,11 @@ const MyProducts = () => {
             <table className="table w-full">
                 <thead>
                     <tr>
-                        <th>Product</th>
+                       
+                        <th></th>
                         <th>Sellers Name</th>
                         <th>Category name</th>
                         <th>Resale Price</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

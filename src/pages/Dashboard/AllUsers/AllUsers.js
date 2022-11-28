@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import AllSeller from '../AllSeller/AllSeller';
 
 const AllUsers = () => {
     const [orders, setOrders] = useState([])
@@ -64,7 +65,7 @@ const AllUsers = () => {
     <th></th>
     <th>Name</th>
     <th>Email</th>
-    <th>Category</th>
+    <th>Status</th>
     <th>Admin</th>
     <th>Delete</th>
   </tr>
@@ -75,15 +76,17 @@ const AllUsers = () => {
         <th>{i+1}</th>
         <td>{user.name}</td>
         <td>{user.email}</td>
-        <td>{user?.role ? 'Admin' : user.category}</td>
+        <td>{user?.role ? 'Admin' : user.status}</td>
         <td>{ user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-info'>Make Admin</button>}</td>
         <td>{ user?.role !== 'admin' && <button onClick={() => handleDelete(user._id)} className='btn btn-xs btn-danger'>Delete</button>}</td>
       </tr>)
   }
+
   
 </tbody>
 </table>
 </div>
+
     </div>
     );
 };

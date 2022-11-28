@@ -31,11 +31,7 @@ const MyProduct = ({ product, handleDelete}) => {
         
         </td>
         <td>${resalePrice}</td>
-        <th>
-            <button 
-          
-            className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
-        </th>
+      
     </tr>
     );
 };
