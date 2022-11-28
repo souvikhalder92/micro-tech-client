@@ -25,6 +25,7 @@
 * Micro Tech is resale marketing website.
 * Buyer,Seller and Admin Dashboard facilities .
 * Buyers will see my orders,Seller will see add a product,my products and Admin will see all users,all sellers.
+* React stripe payment system.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
