@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path:'/categories/:id',
                 element:<Products></Products>,
-                loader:({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader:({params}) => fetch(`https://micro-tech-server.vercel.app/categories/${params.id}`)
             },
             {
                 path:'/blog',
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
                 path: '/dashboard/addproduct',
                 //admin
                 element: <AddProduct></AddProduct>,
-                loader: () => fetch('http://localhost:5000/products')
+                loader: () => fetch('https://micro-tech-server.vercel.app/products')
             },
             {
                 path: '/dashboard/myproducts',
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/payment/:id',
                 element:<Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({params}) => fetch(`https://micro-tech-server.vercel.app/bookings/${params.id}`)
             }
           
         ]

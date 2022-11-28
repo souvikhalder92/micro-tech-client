@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [bookings,setBookings] = useState([]);
 
     useEffect(() =>{
-        axios.get(`http://localhost:5000/bookings?email=${user?.email}`,{
+        axios.get(`https://micro-tech-server.vercel.app/bookings?email=${user?.email}`,{
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}` 
              }

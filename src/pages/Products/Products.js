@@ -11,7 +11,7 @@ const Products = () => {
   
  const  {data:prod = []} = useQuery({
     queryKey: ['prod'],
-    queryFn: () => fetch(`http://localhost:5000/products?categoryName=${products.categoryName}`)
+    queryFn: () => fetch(`https://micro-tech-server.vercel.app/products?categoryName=${products.categoryName}`)
     .then(res => res.json())
   
 })

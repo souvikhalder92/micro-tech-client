@@ -32,7 +32,7 @@ const SignUp = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
-            fetch('http://localhost:5000/users', {
+            fetch('https://micro-tech-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,7 +77,7 @@ const SignUp = () => {
       
     const saveUser = (name, email, status , verify) =>{
         const user ={ name, email, status , verify};
-        fetch('http://localhost:5000/users', {
+        fetch('https://micro-tech-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

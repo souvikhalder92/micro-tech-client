@@ -7,7 +7,7 @@ const MyProducts = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/seller?email=${user?.email}`,{
+        fetch(`https://micro-tech-server.vercel.app/products/seller?email=${user?.email}`,{
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('token')}`
             }
@@ -24,7 +24,7 @@ const MyProducts = () => {
     const handleDelete = _id =>{
         const proceed = window.confirm('Are you sure, you want to cancel this product');
         if(proceed){
-            fetch(`http://localhost:5000/products/seller/${_id}`, {
+            fetch(`https://micro-tech-server.vercel.app/products/seller/${_id}`, {
                 method: 'DELETE',
                 headers: {
                         'authorization': `Bearer ${localStorage.getItem('token')}`

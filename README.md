@@ -1,3 +1,30 @@
+# Project Name:
+ Micro Tech
+# Live Link:
+ Live Demo: https://micro-tech-75402.web.app/
+# Project Description
+## Technologies:
+* Tailwind CSS
+* Daisy UI
+* JS
+* React.Js
+* React-Router
+* Custom Hook
+* React Form
+* React Query
+* Axios
+* React Stripe
+* Nodejs
+* Express.js
+* Firebase Authentication
+* MongoDB(CRUD Operation)
+* JWT Token
+## Features:
+* Dynamic and full stack website with Firebase Authentication System.
+* This website is fully functional and fully responsive for user.
+* Micro Tech is resale marketing website.
+* Buyer,Seller and Admin Dashboard facilities .
+* Buyers will see my orders,Seller will see add a product,my products and Admin will see all users,all sellers.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

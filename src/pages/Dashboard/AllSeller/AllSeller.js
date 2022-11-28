@@ -16,7 +16,7 @@ const AllSeller = () => {
     queryKey: ["users"],
     queryFn: async () => {
       const res = await fetch(
-        'http://localhost:5000/users/seller?status=Seller'
+        'https://micro-tech-server.vercel.app/users/seller?status=Seller'
       );
       const data = await res.json();
       console.log(data);
@@ -28,7 +28,7 @@ const AllSeller = () => {
   const handleVerify = (id) => {
     const verify = { verify: "Verify" };
 
-    fetch(`http://localhost:5000/users/seller/${id}`, {
+    fetch(`https://micro-tech-server.vercel.app/users/seller/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -49,7 +49,7 @@ const AllSeller = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/seller/${id}`, {
+    fetch(`https://micro-tech-server.vercel.app/users/seller/${id}`, {
       method: "DELETE",
       headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`

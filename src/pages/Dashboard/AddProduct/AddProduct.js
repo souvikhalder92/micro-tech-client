@@ -11,7 +11,7 @@ const AddProduct = () => {
     const [product,setProduct] = useState([]);
   
    
-    const url = `http://localhost:5000/products`;
+    const url = `https://micro-tech-server.vercel.app/products`;
 
     useEffect(() =>{
        fetch(url)
@@ -56,7 +56,7 @@ const AddProduct = () => {
          mobile: mobile
 
         }
-        fetch('http://localhost:5000/products', {
+        fetch('https://micro-tech-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
