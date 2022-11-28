@@ -29,13 +29,15 @@ const DashboardLayout = () => {
                 { /*bg-base-100*/ }
                 <ul className="menu p-4 w-80 text-base-content">
 
-                    {
-                        isSeller === "Buyer" &&
+               
+                   
                            <li><Link to="/dashboard">My Orders</Link></li>
-                    }
-
-                 
-                            
+                
+                
+                           <li><Link to="/dashboard/addproduct">Add A Product</Link></li>
+                           <li><Link to="/dashboard/myproducts">My Products</Link></li>
+                        
+               
                 {
                             isAdmin &&
                             <>
@@ -44,16 +46,7 @@ const DashboardLayout = () => {
                            
                             </>
                     }
-                       {
-                            isSeller === "Seller" &&
-                            <>
-                  
-                            <li><Link to="/dashboard/addproduct">Add A Product</Link></li>
-                            <li><Link to="/dashboard/myproducts">My Products</Link></li>
-                            </>
-                           
-
-                    }
+                      
                  
                         
                 
